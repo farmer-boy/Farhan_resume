@@ -1,25 +1,20 @@
-import { Code2, Lightbulb, Rocket, Users } from 'lucide-react';
+import { Code2, Rocket, Users, MapPin, Phone, Mail } from 'lucide-react';
 
 const highlights = [
   {
     icon: Code2,
-    title: 'Clean Code',
-    description: 'Writing maintainable and scalable code',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Problem Solver',
-    description: 'Finding elegant solutions to complex problems',
+    title: 'Full-Stack Development',
+    description: 'React.js, Node.js, Flutter & REST APIs',
   },
   {
     icon: Rocket,
-    title: 'Fast Learner',
-    description: 'Quickly adapting to new technologies',
+    title: 'Performance Focused',
+    description: 'Scalable & high-performance applications',
   },
   {
     icon: Users,
-    title: 'Team Player',
-    description: 'Collaborating effectively with teams',
+    title: 'Clean Architecture',
+    description: 'Modular design & secure authentication',
   },
 ];
 
@@ -38,7 +33,7 @@ const AboutSection = () => {
               {/* Profile Container */}
               <div className="absolute inset-8 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                 <div className="w-full h-full rounded-full bg-secondary flex items-center justify-center overflow-hidden">
-                  <span className="font-display text-6xl sm:text-7xl gradient-text">F</span>
+                  <span className="font-display text-6xl sm:text-7xl gradient-text">FR</span>
                 </div>
               </div>
 
@@ -49,6 +44,22 @@ const AboutSection = () => {
               <div className="absolute -bottom-4 -left-4 w-16 h-16 glass-card rounded-xl flex items-center justify-center animate-float delay-200">
                 <Rocket className="w-8 h-8 text-accent" />
               </div>
+            </div>
+
+            {/* Contact Info */}
+            <div className="mt-8 space-y-2 text-sm text-muted-foreground text-center">
+              <p className="flex items-center justify-center gap-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                Lahore, Pakistan
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <Phone className="w-4 h-4 text-primary" />
+                +92 309 5657677
+              </p>
+              <p className="flex items-center justify-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                subssems336@gmail.com
+              </p>
             </div>
           </div>
 
@@ -61,21 +72,21 @@ const AboutSection = () => {
             </h2>
             
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I'm a dedicated Full-Stack Developer with a passion for creating 
-              beautiful, functional, and user-friendly web applications. With expertise 
-              in React.js and modern web technologies, I transform complex ideas into 
-              elegant digital solutions.
+              Results-driven Full-Stack Web & Flutter Developer with hands-on experience 
+              building scalable, responsive, and high-performance web and mobile applications. 
+              Strong expertise in React.js, Node.js, Flutter, REST APIs, SQL databases, 
+              Firebase, and Strapi CMS.
             </p>
             
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              My journey in web development started with a curiosity for how things work 
-              on the internet. Today, I specialize in building responsive applications 
-              that not only look great but also provide seamless user experiences. I'm 
-              constantly learning and staying updated with the latest trends in technology.
+              Adept at designing modular architectures, implementing secure authentication, 
+              integrating APIs, and managing application state. Passionate about delivering 
+              clean, maintainable code and building real-world solutions with excellent 
+              user experience.
             </p>
 
             {/* Highlights Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {highlights.map((item, index) => (
                 <div
                   key={item.title}

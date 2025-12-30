@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,27 +9,26 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'farhan@example.com',
-    href: 'mailto:farhan@example.com',
+    value: 'subssems336@gmail.com',
+    href: 'mailto:subssems336@gmail.com',
   },
   {
     icon: Phone,
     label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567',
+    value: '+92 309 5657677',
+    href: 'tel:+923095657677',
   },
   {
     icon: MapPin,
     label: 'Location',
-    value: 'New York, USA',
+    value: 'Lahore, Pakistan',
     href: null,
   },
 ];
 
 const socialLinks = [
-  { icon: Github, label: 'GitHub', href: 'https://github.com' },
-  { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: Twitter, label: 'Twitter', href: 'https://twitter.com' },
+  { icon: Github, label: 'GitHub', href: 'https://github.com/farhan-riaz' },
+  { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/farhan-riaz' },
 ];
 
 const ContactSection = () => {
