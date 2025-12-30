@@ -24,7 +24,7 @@ const HeroSection = () => {
             style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
           >
             Hi, I'm{' '}
-            <span className="gradient-text">Farhan</span>
+            <span className="gradient-text">Farhan Riaz</span>
           </h1>
 
           {/* Role */}
@@ -32,7 +32,7 @@ const HeroSection = () => {
             className="text-xl sm:text-2xl md:text-3xl text-muted-foreground mb-6 animate-fade-in-up opacity-0"
             style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
           >
-            Full-Stack / React Developer
+            Full-Stack Web & Flutter Developer
           </h2>
 
           {/* Tagline */}
@@ -40,8 +40,9 @@ const HeroSection = () => {
             className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in-up opacity-0"
             style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}
           >
-            I craft beautiful, responsive, and user-centric web applications 
-            that bring ideas to life with clean code and modern technologies.
+            Results-driven developer building scalable, responsive, and high-performance 
+            web and mobile applications. Passionate about delivering clean, maintainable 
+            code with excellent user experience.
           </p>
 
           {/* CTA Buttons */}
@@ -63,24 +64,27 @@ const HeroSection = () => {
             style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}
           >
             <a
-              href="https://github.com"
+              href="https://github.com/farhan-riaz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full glass-card hover:bg-primary/20 hover:text-primary transition-all duration-300 hover-lift"
+              aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/farhan-riaz"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 rounded-full glass-card hover:bg-primary/20 hover:text-primary transition-all duration-300 hover-lift"
+              aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:farhan@example.com"
+              href="mailto:subssems336@gmail.com"
               className="p-3 rounded-full glass-card hover:bg-primary/20 hover:text-primary transition-all duration-300 hover-lift"
+              aria-label="Email"
             >
               <Mail className="w-5 h-5" />
             </a>

@@ -1,35 +1,61 @@
 const skillCategories = [
   {
-    title: 'Frontend',
+    title: 'Programming Languages',
+    skills: [
+      { name: 'JavaScript (ES6+)', level: 90 },
+      { name: 'Dart', level: 85 },
+      { name: 'C++', level: 75 },
+      { name: 'SQL', level: 80 },
+      { name: 'Python (ML Basics)', level: 60 },
+    ],
+  },
+  {
+    title: 'Frontend Development',
     skills: [
       { name: 'React.js', level: 90 },
-      { name: 'JavaScript', level: 85 },
-      { name: 'TypeScript', level: 80 },
-      { name: 'HTML5', level: 95 },
-      { name: 'CSS3', level: 90 },
-      { name: 'Tailwind CSS', level: 88 },
-    ],
-  },
-  {
-    title: 'Backend',
-    skills: [
-      { name: 'Node.js', level: 75 },
-      { name: 'Express.js', level: 70 },
-      { name: 'SQL', level: 72 },
-      { name: 'MongoDB', level: 68 },
-      { name: 'REST APIs', level: 80 },
-      { name: 'Firebase', level: 65 },
-    ],
-  },
-  {
-    title: 'Tools & Others',
-    skills: [
-      { name: 'Git & GitHub', level: 85 },
-      { name: 'VS Code', level: 90 },
-      { name: 'Figma', level: 70 },
-      { name: 'npm/yarn', level: 85 },
+      { name: 'Flutter', level: 85 },
+      { name: 'Tailwind CSS', level: 90 },
+      { name: 'ShadCN UI', level: 85 },
+      { name: 'HTML5 & CSS3', level: 95 },
       { name: 'Responsive Design', level: 90 },
-      { name: 'Agile/Scrum', level: 75 },
+    ],
+  },
+  {
+    title: 'Backend Development',
+    skills: [
+      { name: 'Node.js', level: 80 },
+      { name: 'RESTful APIs', level: 85 },
+      { name: 'Firebase', level: 80 },
+      { name: 'Strapi CMS', level: 75 },
+      { name: 'Authentication & Auth', level: 80 },
+    ],
+  },
+  {
+    title: 'Databases',
+    skills: [
+      { name: 'MySQL', level: 80 },
+      { name: 'PostgreSQL', level: 78 },
+      { name: 'Firebase Firestore', level: 82 },
+    ],
+  },
+  {
+    title: 'Tools & Platforms',
+    skills: [
+      { name: 'Git & GitHub', level: 90 },
+      { name: 'VS Code', level: 95 },
+      { name: 'Postman', level: 85 },
+      { name: 'Docker (Basics)', level: 60 },
+      { name: 'Vercel', level: 85 },
+    ],
+  },
+  {
+    title: 'Core Competencies',
+    skills: [
+      { name: 'API Integration', level: 88 },
+      { name: 'State Management', level: 85 },
+      { name: 'CRUD Operations', level: 90 },
+      { name: 'OOP & DSA', level: 80 },
+      { name: 'Performance Optimization', level: 82 },
     ],
   },
 ];
@@ -42,11 +68,11 @@ const SkillsSection = () => {
         <div className="text-center mb-16">
           <span className="text-primary font-medium text-sm uppercase tracking-wider">My Skills</span>
           <h2 className="font-display text-3xl sm:text-4xl font-bold mt-2">
-            Technologies I Work With
+            Technical Skills
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             A comprehensive toolkit of modern technologies and frameworks that I use 
-            to build powerful web applications.
+            to build powerful web and mobile applications.
           </p>
         </div>
 
@@ -74,7 +100,7 @@ const SkillsSection = () => {
                         className="h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
                           width: `${skill.level}%`,
-                          background: 'linear-gradient(90deg, hsl(174 72% 56%), hsl(200 80% 50%))',
+                          background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))',
                           animationDelay: `${(categoryIndex * 6 + skillIndex) * 100}ms`,
                         }}
                       />
