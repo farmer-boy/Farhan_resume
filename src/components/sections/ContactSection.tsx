@@ -73,16 +73,41 @@ const ContactSection = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast({
-      title: 'Message Sent!',
-      description: 'Thank you for reaching out. I\'ll get back to you soon!',
-    });
-    
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+    try {
+      // Create FormData object for form submission
+      const formDataObj = new FormData();
+      formDataObj.append('name', formData.name);
+      formDataObj.append('email', formData.email);
+      formDataObj.append('message', formData.message);
+      formDataObj.append('_subject', `New message from ${formData.name}`);
+      formDataObj.append('_captcha', 'false');
+      formDataObj.append('_template', 'table');
+
+      // Send using Formspree
+      const response = await fetch('https://formspree.io/f/xyzgqwzv', {
+        method: 'POST',
+        body: formDataObj,
+      });
+
+      if (response.ok || response.status === 200) {
+        toast({
+          title: '✅ Message Sent Successfully!',
+          description: 'Thank you for reaching out. I\'ll get back to you soon at subssems336@gmail.com!',
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error(`Failed with status: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: 'Error Sending Message',
+        description: 'Could not send message. Please try emailing directly to subssems336@gmail.com',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

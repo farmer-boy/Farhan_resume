@@ -5,7 +5,7 @@ const experiences = [
     title: 'Frontend Developer Intern',
     company: 'Tech Solutions Inc.',
     location: 'Remote',
-    duration: 'Jun 2023 - Dec 2023',
+    duration: 'Jun 2024 - Dec 2025',
     type: 'Internship',
     responsibilities: [
       'Developed and maintained React components for the company\'s main product',
@@ -18,7 +18,7 @@ const experiences = [
     title: 'Junior Web Developer',
     company: 'Digital Agency XYZ',
     location: 'New York, USA',
-    duration: 'Jan 2023 - May 2023',
+    duration: 'Jan 2024 - May 2025',
     type: 'Part-time',
     responsibilities: [
       'Built custom WordPress themes and plugins for client websites',
@@ -31,7 +31,7 @@ const experiences = [
     title: 'Freelance Developer',
     company: 'Self-Employed',
     location: 'Remote',
-    duration: '2022 - Present',
+    duration: '2024 - 2025',
     type: 'Freelance',
     responsibilities: [
       'Designed and developed custom web applications for small businesses',
