@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -45,8 +45,8 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border/50 text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-            © {currentYear} Farhan. Made with <Heart className="w-4 h-4 text-destructive fill-destructive" /> using React
+          <p className="text-sm text-muted-foreground text-center">
+            © {currentYear} Farhan. Made with React
           </p>
         </div>
       </div>
