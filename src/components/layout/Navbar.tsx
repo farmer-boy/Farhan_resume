@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Download, FileText } from 'lucide-react';
+import { Menu, X, Download, FileText, Sun, Moon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useTheme } from 'next-themes';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -21,6 +22,12 @@ const navLinks = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,7 +40,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' : 'bg-transparent'
+        scrolled ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' : 'bg-background/50 backdrop-blur-sm'
       }`}
     >
       <div className="container-custom">
@@ -79,6 +86,22 @@ const Navbar = () => {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            {/* Theme Toggle Button */}
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="ml-2"
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,17 +117,17 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${
+          className={`md:hidden overflow-hidden transition-all duration-300 bg-background/95 backdrop-blur-xl border-t border-border/50 ${
             isOpen ? 'max-h-96 pb-4' : 'max-h-0'
           }`}
         >
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 pt-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                className="px-4 py-3 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -120,12 +143,33 @@ const Navbar = () => {
                 document.body.removeChild(link);
                 setIsOpen(false);
               }}
-              className="px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200 flex items-center gap-2"
+              className="px-4 py-3 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-all duration-200 flex items-center gap-2"
             >
               <FileText className="w-4 h-4" />
               <span>Resume</span>
               <Download className="w-4 h-4 ml-auto" />
             </button>
+            {/* Mobile Theme Toggle */}
+            {mounted && (
+              <button
+                onClick={() => {
+                  setTheme(theme === 'dark' ? 'light' : 'dark');
+                }}
+                className="px-4 py-3 text-foreground hover:text-primary hover:bg-secondary/50 rounded-lg transition-all duration-200 flex items-center gap-2"
+              >
+                {theme === 'dark' ? (
+                  <>
+                    <Sun className="w-4 h-4" />
+                    <span>Light Mode</span>
+                  </>
+                ) : (
+                  <>
+                    <Moon className="w-4 h-4" />
+                    <span>Dark Mode</span>
+                  </>
+                )}
+              </button>
+            )}
           </div>
         </div>
       </div>
