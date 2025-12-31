@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -27,6 +27,8 @@ const contactInfo = [
 ];
 
 const socialLinks = [
+  { icon: Mail, label: 'Gmail', href: 'mailto:subssems336@gmail.com' },
+  { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/farhan_khan336/?__pwa=1' },
   { icon: Github, label: 'GitHub', href: 'https://github.com/farhan-riaz' },
   { icon: Linkedin, label: 'LinkedIn', href: 'https://linkedin.com/in/farhan-riaz' },
 ];
@@ -74,29 +76,35 @@ const ContactSection = () => {
     setIsSubmitting(true);
     
     try {
-      // Create FormData object for form submission
-      const formDataObj = new FormData();
-      formDataObj.append('name', formData.name);
-      formDataObj.append('email', formData.email);
-      formDataObj.append('message', formData.message);
-      formDataObj.append('_subject', `New message from ${formData.name}`);
-      formDataObj.append('_captcha', 'false');
-      formDataObj.append('_template', 'table');
-
-      // Send using Formspree
-      const response = await fetch('https://formspree.io/f/xyzgqwzv', {
+      // Using FormSubmit - a free service that sends emails without API keys
+      const response = await fetch('https://formsubmit.co/ajax/subssems336@gmail.com', {
         method: 'POST',
-        body: formDataObj,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New message from ${formData.name}`,
+          _captcha: false
+        })
       });
 
-      if (response.ok || response.status === 200) {
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        // Show success message
         toast({
-          title: '✅ Message Sent Successfully!',
-          description: 'Thank you for reaching out. I\'ll get back to you soon at subssems336@gmail.com!',
+          title: 'Successfully send message',
+          description: 'Your message has been sent successfully to subssems336@gmail.com',
         });
+        
+        // Reset form
         setFormData({ name: '', email: '', message: '' });
       } else {
-        throw new Error(`Failed with status: ${response.status}`);
+        throw new Error('Failed to send message');
       }
     } catch (error) {
       console.error('Error:', error);

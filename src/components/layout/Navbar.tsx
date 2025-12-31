@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download, FileText } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
@@ -49,6 +55,30 @@ const Navbar = () => {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+            {/* Resume Button */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="ml-2">
+                  <FileText className="w-4 h-4 mr-2" />
+                  Resume
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.href = '/FARHAN RIAZ 01 (1).pdf';
+                    link.download = 'Farhan_Riaz_Resume.pdf';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,6 +109,23 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            {/* Mobile Resume Download */}
+            <button
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/FARHAN RIAZ 01 (1).pdf';
+                link.download = 'Farhan_Riaz_Resume.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setIsOpen(false);
+              }}
+              className="px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200 flex items-center gap-2"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Resume</span>
+              <Download className="w-4 h-4 ml-auto" />
+            </button>
           </div>
         </div>
       </div>
