@@ -74,7 +74,7 @@ const Navbar = () => {
                 <DropdownMenuItem
                   onClick={() => {
                     const link = document.createElement('a');
-                    link.href = '/FARHAN RIAZ 01 (1).pdf';
+                    link.href = '/resume.pdf';
                     link.download = 'Farhan_Riaz_Resume.pdf';
                     document.body.appendChild(link);
                     link.click();
@@ -136,7 +136,7 @@ const Navbar = () => {
             <button
               onClick={() => {
                 const link = document.createElement('a');
-                link.href = '/FARHAN RIAZ 01 (1).pdf';
+                link.href = '/resume.pdf';
                 link.download = 'Farhan_Riaz_Resume.pdf';
                 document.body.appendChild(link);
                 link.click();
