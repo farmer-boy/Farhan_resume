@@ -14,7 +14,7 @@ const projects = [
       'Performance optimization',
     ],
     github: 'https://github.com/farhan-riaz',
-    live: 'https://farhan-riaz-portfolio-chi.vercel.app',
+    live: 'my-portfolio-ten-puce-2j77r1y75d.vercel.app',
     featured: true,
   },
   {
